@@ -68,7 +68,7 @@ docker compose run cli
 ---
 
 ## Usage
-## CLI
+### CLI
 - `use <repo>` → select repository.  
 - `list` → list open issues.  
 - `show <issue_number>` → show details for an issue.  
