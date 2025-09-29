@@ -25,21 +25,21 @@ class DevinClient:
         waited = 0
         while True:
             async with self.session.get(f"{API_BASE}/sessions/{session_id}") as r:
-                try:
-                    body = await r.json()
-                except Exception:
-                    # HTML 502 error page
-                    text = await r.text()
-                    print(f"[poll] Non-JSON response (status={r.status}): {text[:120]!r}")
-                    body = {}
+                body = await r.json()
                 if r.status >= 400:
                     raise RuntimeError(f"Devin poll failed: {body}")
 
                 so = body.get("structured_output")
                 if isinstance(so, dict):
                     if wait_for_pr:
-                        if so.get("pull_request_url"):
+                        if (
+                            so.get("pull_request_url")
+                            or so.get("branch_name")
+                            or so.get("commits")
+                            or body.get("pull_request")
+                        ):
                             return body
+
                     else:
                         ap = so.get("action_plan")
                         if isinstance(ap, list) and len(ap) > 0:
