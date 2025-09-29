@@ -1,7 +1,9 @@
 # GitHub Issues Automation Tool with Devin
 
 This project is a take-home demo for Cognition AI.  
-It integrates Devin with **GitHub Issues, letting you list, scope, and execute issues automatically.  
+It integrates Devin with GitHub Issues, letting you list, scope, and execute issues automatically.  
+
+![Dashboard](./images/dashboard.png)
 
 ---
 
