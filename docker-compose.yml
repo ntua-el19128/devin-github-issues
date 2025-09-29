@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    container_name: devin-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    networks:
+      - devin-net
+  
+
+  frontend:
+    build: ./frontend
+    container_name: devin-frontend
+    ports:
+      - "5173:80"
+    environment:
+      - VITE_API_BASE=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - devin-net
+
+  cli:
+    build:
+      context: .
+      dockerfile: cli.Dockerfile
+    container_name: devin-cli
+    depends_on:
+      - backend
+    environment:
+      - SERVER_URL=http://backend:8000
+    stdin_open: true
+    tty: true
+    networks:
+      - devin-net
+
+networks:
+  devin-net:
+    driver: bridge
