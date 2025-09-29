@@ -17,10 +17,10 @@ Turn backlog issues into one click automation with Devin.
 
 ## Features
 - **List issues** from a GitHub repo.  
-- **Scope & Execute issue** → Devin first scopes the issue (summary + action plan) and then executes it (commits + PR).  
-- **Batch mode** → run Scope & Execute on all issues, or only selected ones, in one command.  
-- **Frontend UI** → dark-themed dashboard.  
-- **CLI tool** → terminal client.  
+- **Scope & Execute issue** : Devin first scopes the issue (summary + action plan) and then executes it (commits + PR).  
+- **Batch mode** : run Scope & Execute on all issues, or only selected ones, in one command.  
+- **Frontend UI** : dark-themed dashboard.  
+- **CLI tool** : terminal client.  
 
 ---
 
@@ -52,7 +52,7 @@ cd devin-github-issues
 ### 2. Create .env file
 ```bash
 GITHUB_TOKEN=your_github_pat
-GITHUB_OWNER=your_github_username_or_org
+GITHUB_OWNER=your_github_username_or_org # not a real env var, just avoids hardcoding
 DEVIN_API_KEY=your_devin_api_key
 ```
 For testing, you can set GITHUB_OWNER=ntua-el19128 and use the dummy repo github-issues.
@@ -71,20 +71,20 @@ docker compose run cli
 
 ## Usage
 ### CLI
-- `use <repo>` → select repository.  
-- `list` → list open issues.  
-- `show <issue_number>` → show details for an issue.  
-- `resolve all` → scope & execute all issues.  
-- `resolve <n1> <n2> ...` → scope & execute selected issues.  
-- `help` → list commands.  
-- `exit` → quit CLI.
+- `use <repo>` : select repository.  
+- `list` : list open issues.  
+- `show <issue_number>` : show details for an issue.  
+- `resolve all` : scope & execute all issues.  
+- `resolve <n1> <n2> ...` : scope & execute selected issues.  
+- `help` : list commands.  
+- `exit` : quit CLI.
 
 ### Frontend
-- Enter repo name → fetch issues.  
-- **Scope & Execute** → run Devin on a single issue.  
-- **Scope & Execute Selected** → run Devin on multiple chosen issues.  
-- **Scope & Execute All** → run Devin on the entire backlog.  
-- Click an issue → view its full description before execution.  
+- Enter repo name : fetch issues.  
+- **Scope & Execute** : run Devin on a single issue.  
+- **Scope & Execute Selected** : run Devin on multiple chosen issues.  
+- **Scope & Execute All** : run Devin on the entire backlog.  
+- Click an issue : view its full description before execution.  
 
 ---
 
